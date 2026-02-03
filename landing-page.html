@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeRight Improvements | Free Consultation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8fafb;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 16px 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f766e;
+        }
+
+        .logo span {
+            color: #334155;
+        }
+
+        .phone {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .phone a {
+            color: #0f766e;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+            padding: 50px 24px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Main */
+        .main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* About Section */
+        .about {
+            padding-right: 20px;
+        }
+
+        .about h2 {
+            font-size: 22px;
+            color: #1e293b;
+            margin-bottom: 14px;
+        }
+
+        .about p {
+            font-size: 15px;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            list-style: none;
+        }
+
+        .features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 14px;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .features li span {
+            color: #0f766e;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 24px;
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .badge {
+            text-align: center;
+        }
+
+        .badge-num {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0f766e;
+        }
+
+        .badge-text {
+            font-size: 11px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 28px;
+        }
+
+        .form-section h3 {
+            font-size: 18px;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        .form-section > p {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 22px;
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            background: #f8fafb;
+            color: #334155;
+            transition: all 0.2s;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: none;
+            border-color: #0f766e;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(15,118,110,0.1);
+        }
+
+        .field input::placeholder,
+        .field textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        .field select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            cursor: pointer;
+        }
+
+        .field textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: all 0.2s;
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 4px 14px rgba(15,118,110,0.35);
+            transform: translateY(-1px);
+        }
+
+        .privacy {
+            font-size: 11px;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: 14px;
+        }
+
+        /* Success */
+        .success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success span {
+            display: inline-block;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-radius: 50%;
+            line-height: 56px;
+            font-size: 26px;
+            margin-bottom: 16px;
+        }
+
+        .success h4 {
+            color: #059669;
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .success p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background: #f1f5f9;
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        .testimonial-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .testimonial q {
+            font-size: 17px;
+            color: #475569;
+            font-style: italic;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .testimonial cite {
+            font-size: 13px;
+            color: #94a3b8;
+            font-style: normal;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: #94a3b8;
+            text-align: center;
+            padding: 28px 24px;
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: #5eead4;
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+            .main {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px 20px;
+            }
+
+            .about {
+                padding-right: 0;
+                order: 2;
+            }
+
+            .form-section {
+                order: 1;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .trust-badges {
+                justify-content: space-around;
+            }
+
+            .row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">Home<span>Right</span></div>
+            <div class="phone">Call us: <a href="tel:5551234567">(555) 123-4567</a></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Quality Home Improvements<br>You Can Trust</h1>
+        <p>Get a free consultation and see why thousands of homeowners choose us for their renovation projects.</p>
+    </section>
+
+    <main class="main">
+        <div class="about">
+            <h2>Why HomeRight?</h2>
+            <p>We've been helping families transform their homes for over 15 years. From roofing to siding, windows to painting — we deliver quality work that lasts.</p>
+
+            <ul class="features">
+                <li><span>✓</span> Licensed & fully insured contractors</li>
+                <li><span>✓</span> Free in-home consultation & estimate</li>
+                <li><span>✓</span> Flexible financing options available</li>
+                <li><span>✓</span> Satisfaction guaranteed on every project</li>
+                <li><span>✓</span> Local team that knows your neighborhood</li>
+            </ul>
+
+            <div class="trust-badges">
+                <div class="badge">
+                    <div class="badge-num">15+</div>
+                    <div class="badge-text">Years Experience</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-num">5,000+</div>
+                    <div class="badge-text">Happy Customers</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-num">4.9★</div>
+                    <div class="badge-text">Average Rating</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Schedule Your Free Consultation</h3>
+            <p>Fill out the form below and we'll contact you within 24 hours.</p>
+
+            <form id="form">
+                <div class="field">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Smith" required>
+                </div>
+
+                <div class="field">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="(555) 000-0000" required>
+                </div>
+
+                <div class="field">
+                    <label>Email (optional)</label>
+                    <input type="email" placeholder="you@email.com">
+                </div>
+
+                <div class="field">
+                    <label>Property Address</label>
+                    <input type="text" placeholder="123 Main St, City, State" required>
+                </div>
+
+                <div class="field">
+                    <label>What project are you interested in?</label>
+                    <select required>
+                        <option value="">Select...</option>
+                        <option>Roofing</option>
+                        <option>Siding</option>
+                        <option>Windows & Doors</option>
+                        <option>Painting</option>
+                        <option>Fencing</option>
+                        <option>Multiple Projects</option>
+                        <option>Not sure yet</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Best time to contact you?</label>
+                    <div class="row">
+                        <select>
+                            <option value="">Day...</option>
+                            <option>Any day</option>
+                            <option>Weekdays</option>
+                            <option>Weekends</option>
+                        </select>
+                        <select>
+                            <option value="">Time...</option>
+                            <option>Morning (9am-12pm)</option>
+                            <option>Afternoon (12pm-5pm)</option>
+                            <option>Evening (5pm-8pm)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Anything else we should know? (optional)</label>
+                    <textarea placeholder="Tell us about your project..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Request Free Consultation</button>
+
+                <p class="privacy">Your information is secure and will never be shared.</p>
+            </form>
+
+            <div class="success" id="success">
+                <span>✓</span>
+                <h4>Thank You!</h4>
+                <p>We received your request and will contact you within 24 hours.</p>
+            </div>
+        </div>
+    </main>
+
+    <section class="testimonial">
+        <div class="testimonial-inner">
+            <q>HomeRight replaced our roof after storm damage. Professional, fast, and they handled everything with our insurance. Couldn't be happier!</q>
+            <cite>— Sarah M., Austin TX</cite>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 HomeRight Improvements · <a href="tel:5551234567">(555) 123-4567</a> · Serving the Greater Metro Area</p>
+    </footer>
+
+    <script>
+        document.getElementById('form').onsubmit = function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('success').style.display = 'block';
+        };
+    </script>
+
+</body>
+</html>
