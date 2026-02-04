@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeRight Improvements | Free Consultation</title>
+    <title>Get Your Free Estimate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -12,482 +13,1782 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #f8fafb;
-            color: #334155;
-            line-height: 1.6;
+            font-family: 'Poppins', -apple-system, sans-serif;
+            background: #f0f0f0;
+            min-height: 100vh;
+            color: #333;
         }
 
-        /* Header */
-        .header {
+        /* Logo Header */
+        .logo-header {
             background: white;
-            padding: 16px 24px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .header-inner {
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 14px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid #e5e5e5;
         }
 
-        .logo {
-            font-size: 20px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-name {
+            font-size: 26px;
             font-weight: 700;
-            color: #0f766e;
+            color: #222;
         }
 
-        .logo span {
-            color: #334155;
+        .logo-highlight {
+            color: #7cb342;
         }
 
-        .phone {
-            font-size: 14px;
-            color: #64748b;
-        }
-
-        .phone a {
-            color: #0f766e;
+        .header-phone {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222;
             text-decoration: none;
-            font-weight: 600;
         }
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
-            padding: 50px 24px;
-            text-align: center;
-            color: white;
+        .header-phone:hover {
+            color: #555;
         }
 
-        .hero h1 {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            line-height: 1.3;
+        .header-verified {
+            height: 42px;
+            width: auto;
         }
 
-        .hero p {
-            font-size: 16px;
-            opacity: 0.9;
+        @media (max-width: 500px) {
+            .logo-header {
+                padding: 12px 16px;
+            }
+            .logo-name {
+                font-size: 20px;
+            }
+            .header-verified {
+                height: 32px;
+            }
+            .header-phone {
+                font-size: 14px;
+            }
+        }
+
+        /* Trust Badges (below button) */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        .trust-badge:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 500px) {
+            .trust-badges {
+                gap: 15px;
+            }
+            .trust-badge {
+                height: 35px;
+            }
+        }
+
+        /* Progress Bar */
+        .progress-wrapper {
+            padding: 20px 30px 0;
             max-width: 500px;
             margin: 0 auto;
         }
 
-        /* Main */
-        .main {
-            max-width: 900px;
+        .progress-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #7cb342;
+            border-radius: 10px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        .progress-label {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 700px;
             margin: 0 auto;
-            padding: 40px 24px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            padding: 20px 20px 20px;
         }
 
-        /* About Section */
-        .about {
-            padding-right: 20px;
+        .form-card {
+            background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+            border-radius: 20px;
+            padding: 50px 60px 60px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
         }
 
-        .about h2 {
-            font-size: 22px;
-            color: #1e293b;
-            margin-bottom: 14px;
-        }
-
-        .about p {
-            font-size: 15px;
-            color: #64748b;
-            margin-bottom: 20px;
-        }
-
-        .features {
-            list-style: none;
-        }
-
-        .features li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 14px;
-            font-size: 14px;
-            color: #475569;
-        }
-
-        .features li span {
-            color: #0f766e;
-            font-size: 18px;
-            line-height: 1;
-        }
-
-        .trust-badges {
-            display: flex;
-            gap: 24px;
-            margin-top: 28px;
-            padding-top: 24px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .badge {
+        /* Step Content */
+        .step {
+            display: none;
             text-align: center;
         }
 
-        .badge-num {
-            font-size: 26px;
-            font-weight: 700;
-            color: #0f766e;
-        }
-
-        .badge-text {
-            font-size: 11px;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Form Section */
-        .form-section {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            padding: 28px;
-        }
-
-        .form-section h3 {
-            font-size: 18px;
-            color: #1e293b;
-            margin-bottom: 6px;
-        }
-
-        .form-section > p {
-            font-size: 13px;
-            color: #94a3b8;
-            margin-bottom: 22px;
-        }
-
-        .field {
-            margin-bottom: 16px;
-        }
-
-        .field label {
+        .step.active {
             display: block;
-            font-size: 12px;
-            color: #64748b;
-            margin-bottom: 5px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .step h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #7cb342;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .step-subtitle {
+            font-size: 15px;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* Input Field */
+        .input-wrapper {
+            max-width: 400px;
+            margin: 0 auto 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 18px 24px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 16px;
+            font-family: inherit;
+            text-align: center;
+            color: #333;
+            background: white;
+            transition: all 0.2s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #7cb342;
+        }
+
+        .input-field::placeholder {
+            color: #bbb;
+        }
+
+        .input-field.error {
+            border-color: #e53935;
+        }
+
+        .input-field.success {
+            border-color: #7cb342;
+        }
+
+        .zip-message {
+            font-size: 13px;
+            margin-top: 10px;
+            min-height: 20px;
+            text-align: center;
+        }
+
+        .zip-message.error {
+            color: #e53935;
+        }
+
+        .zip-message.success {
+            color: #7cb342;
+        }
+
+        .btn-next.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .btn-next.loading::after {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #fff;
+            border-top-color: transparent;
+            border-radius: 50%;
+            margin-left: 8px;
+            animation: spin 0.8s linear infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Select Field */
+        .select-field {
+            width: 100%;
+            padding: 18px 24px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 16px;
+            font-family: inherit;
+            text-align: center;
+            color: #333;
+            background: white;
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+        }
+
+        .select-field:focus {
+            outline: none;
+            border-color: #7cb342;
+        }
+
+        /* Trust Text */
+        .trust-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 24px;
+        }
+
+        .trust-text img {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Step 1 Trust Info */
+        .step1-trust-info {
+            margin-top: 40px;
+        }
+
+        .trust-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .trust-stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #888;
             font-weight: 500;
         }
 
-        .field input,
-        .field select,
-        .field textarea {
-            width: 100%;
-            padding: 11px 14px;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 14px;
-            background: #f8fafb;
-            color: #334155;
-            transition: all 0.2s;
+        .trust-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 12px;
+            color: #555;
+            font-weight: 500;
         }
 
-        .field input:focus,
-        .field select:focus,
-        .field textarea:focus {
-            outline: none;
-            border-color: #0f766e;
+        .trust-details span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .trust-details svg {
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 500px) {
+            .trust-stats {
+                gap: 20px;
+            }
+            .stat-number {
+                font-size: 20px;
+            }
+            .trust-details {
+                gap: 20px;
+                font-size: 11px;
+            }
+        }
+
+        /* Step 1 Extra Content */
+        .step1-extra-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px 30px;
+            overflow: hidden;
+        }
+
+        .why-choose-us {
             background: white;
-            box-shadow: 0 0 0 3px rgba(15,118,110,0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
         }
 
-        .field input::placeholder,
-        .field textarea::placeholder {
-            color: #94a3b8;
+        .why-choose-us h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
-        .field select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            cursor: pointer;
-        }
-
-        .field textarea {
-            resize: vertical;
-            min-height: 70px;
-        }
-
-        .row {
+        .features-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
-        .submit-btn {
+        .feature-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: #e8f5e9;
+            color: #7cb342;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .feature-text strong {
+            display: block;
+            font-size: 13px;
+            color: #222;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .feature-text p {
+            font-size: 11px;
+            color: #888;
+            margin: 0;
+        }
+
+        .testimonials-carousel-wrapper {
+            position: relative;
             width: 100%;
-            padding: 13px;
-            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+            overflow: hidden;
+        }
+
+        .testimonials-carousel {
+            overflow: hidden;
+            border-radius: 16px;
+            width: 100%;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.4s ease;
+            width: 100%;
+        }
+
+        .testimonial-box {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            width: 100%;
+            min-width: 100%;
+            flex-shrink: 0;
+            box-sizing: border-box;
+        }
+
+        .testimonial-category {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #7cb342;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.95);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #555;
+            transition: all 0.2s ease;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            color: #7cb342;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+        }
+
+        .carousel-btn.prev {
+            left: 12px;
+        }
+
+        .carousel-btn.next {
+            right: 12px;
+        }
+
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .carousel-dot.active {
+            background: #7cb342;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            color: #555;
+            font-style: italic;
+            line-height: 1.6;
+            margin: 0 0 15px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .author-location {
+            color: #888;
+        }
+
+        .testimonial-stars {
+            color: #ffc107;
+            font-size: 16px;
+        }
+
+        @media (max-width: 500px) {
+            .step1-extra-content {
+                padding: 0 16px 25px;
+            }
+            .why-choose-us, .testimonial-box {
+                padding: 18px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .why-choose-us h3 {
+                font-size: 16px;
+            }
+            .testimonial-text {
+                font-size: 12px;
+            }
+            .testimonial-category {
+                font-size: 10px;
+                padding: 3px 10px;
+            }
+            .carousel-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+            .carousel-btn.prev {
+                left: 8px;
+            }
+            .carousel-btn.next {
+                right: 8px;
+            }
+        }
+
+        /* Button */
+        .btn-next {
+            display: inline-block;
+            padding: 16px 50px;
+            background: #7cb342;
             color: white;
             border: none;
-            border-radius: 10px;
-            font-size: 15px;
+            border-radius: 50px;
+            font-size: 16px;
             font-weight: 600;
+            font-family: inherit;
             cursor: pointer;
-            margin-top: 6px;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
         }
 
-        .submit-btn:hover {
-            box-shadow: 0 4px 14px rgba(15,118,110,0.35);
-            transform: translateY(-1px);
+        .btn-next:hover {
+            background: #689f38;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124,179,66,0.35);
         }
 
-        .privacy {
-            font-size: 11px;
-            color: #94a3b8;
-            text-align: center;
-            margin-top: 14px;
-        }
-
-        /* Success */
-        .success {
-            display: none;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .success span {
+        .btn-back {
             display: inline-block;
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-            border-radius: 50%;
-            line-height: 56px;
-            font-size: 26px;
-            margin-bottom: 16px;
-        }
-
-        .success h4 {
-            color: #059669;
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
-
-        .success p {
-            color: #64748b;
+            padding: 14px 30px;
+            background: transparent;
+            color: #999;
+            border: none;
             font-size: 14px;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            margin-right: 10px;
         }
 
-        /* Testimonial */
-        .testimonial {
-            background: #f1f5f9;
-            padding: 40px 24px;
-            text-align: center;
+        .btn-back:hover {
+            color: #666;
         }
 
-        .testimonial-inner {
-            max-width: 600px;
-            margin: 0 auto;
+        .buttons {
+            margin-top: 10px;
         }
 
-        .testimonial q {
-            font-size: 17px;
-            color: #475569;
-            font-style: italic;
+        /* Option Cards */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .option-card {
+            position: relative;
+        }
+
+        .option-card input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .option-card label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 16px;
+            border: 2px solid #e5e5e5;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+        }
+
+        .option-card label:hover {
+            border-color: #ccc;
+        }
+
+        .option-card input:checked + label {
+            border-color: #7cb342;
+            background: #f9fcf5;
+        }
+
+        .option-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 10px;
+        }
+
+        .option-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        /* Project Cards */
+        .projects-scroll-container {
+            max-width: 500px;
+            max-height: 280px;
+            margin: 0 auto 20px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .projects-scroll-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .projects-scroll-container::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 3px;
+        }
+
+        .projects-scroll-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .projects-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #aaa;
+        }
+
+        .project-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            align-items: stretch;
+        }
+
+        .project-card {
+            position: relative;
+            cursor: pointer;
             display: block;
-            margin-bottom: 16px;
         }
 
-        .testimonial cite {
-            font-size: 13px;
-            color: #94a3b8;
-            font-style: normal;
+        .project-card input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
         }
 
-        /* Footer */
-        .footer {
-            background: #1e293b;
-            color: #94a3b8;
+        .project-card .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 4px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            height: 80px;
+            box-sizing: border-box;
+        }
+
+        .project-card .card-icon {
+            flex-shrink: 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-card .card-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .project-card .card-text {
+            font-size: 9px;
+            font-weight: 600;
+            color: #555;
             text-align: center;
-            padding: 28px 24px;
+            line-height: 1.2;
+            margin-top: 6px;
+            word-break: break-word;
+            max-width: 100%;
+            flex-shrink: 0;
+        }
+
+        .project-card:hover .card-content {
+            border-color: #7cb342;
+        }
+
+        .project-card input:checked + .card-content {
+            background: #7cb342;
+            border-color: #7cb342;
+        }
+
+        .project-card input:checked + .card-content .card-text {
+            color: white;
+        }
+
+        .project-card input:checked + .card-content .card-icon {
+            color: white;
+        }
+
+        @media (max-width: 500px) {
+            .projects-scroll-container {
+                max-height: 250px;
+            }
+            .project-cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .project-card .card-content {
+                padding: 10px 4px;
+                height: 75px;
+            }
+            .project-card .card-icon {
+                font-size: 20px;
+            }
+            .project-card .card-text {
+                font-size: 8px;
+                margin-top: 5px;
+            }
+        }
+
+        /* Schedule Section */
+        .schedule-container {
+            max-width: 450px;
+            margin: 0 auto 20px;
+        }
+
+        .schedule-section {
+            margin-bottom: 25px;
+        }
+
+        .schedule-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        /* Date Options */
+        .month-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .date-grid {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 5px 0 10px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .date-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .date-grid::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 3px;
+        }
+
+        .date-grid::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .date-grid::-webkit-scrollbar-thumb:hover {
+            background: #aaa;
+        }
+
+        .date-chip {
+            position: relative;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .date-chip input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .date-chip span {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 12px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            min-width: 50px;
+        }
+
+        .date-chip span strong {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        .date-chip span small {
+            font-size: 9px;
+            color: #888;
+        }
+
+        .date-chip span small:first-child {
+            margin-bottom: 2px;
+        }
+
+        .date-chip span small:last-child {
+            margin-top: 2px;
+        }
+
+        .date-chip:hover span {
+            border-color: #7cb342;
+        }
+
+        .date-chip input:checked + span {
+            background: #7cb342;
+            border-color: #7cb342;
+        }
+
+        .date-chip input:checked + span strong,
+        .date-chip input:checked + span small {
+            color: white;
+        }
+
+        /* Time Options */
+        .time-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .time-chip {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .time-chip input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .time-chip span {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .time-chip span strong {
+            font-size: 15px;
+            color: #333;
+        }
+
+        .time-chip span small {
+            font-size: 12px;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        .time-chip:hover span {
+            border-color: #7cb342;
+        }
+
+        .time-chip input:checked + span {
+            background: #7cb342;
+            border-color: #7cb342;
+        }
+
+        .time-chip input:checked + span strong,
+        .time-chip input:checked + span small {
+            color: white;
+        }
+
+        @media (max-width: 400px) {
+            .time-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer Trust */
+        .footer-trust {
+            text-align: center;
+            padding: 30px 20px;
+            color: #999;
             font-size: 13px;
         }
 
-        .footer a {
-            color: #5eead4;
+        .footer-trust p {
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #999;
             text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            color: #666;
+        }
+
+        /* Success State */
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .success-icon img {
+            width: 100%;
+            height: 100%;
         }
 
         /* Mobile */
-        @media (max-width: 700px) {
-            .main {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 30px 20px;
+        @media (max-width: 600px) {
+            .form-card {
+                padding: 40px 30px 50px;
             }
 
-            .about {
-                padding-right: 0;
-                order: 2;
-            }
-
-            .form-section {
-                order: 1;
-            }
-
-            .hero h1 {
+            .step h1 {
                 font-size: 24px;
             }
 
-            .trust-badges {
-                justify-content: space-around;
+            .step h2 {
+                font-size: 22px;
             }
 
-            .row {
-                grid-template-columns: 1fr;
-                gap: 0;
+            .options-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .progress-line {
+                width: 40px;
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="header-inner">
-            <div class="logo">Home<span>Right</span></div>
-            <div class="phone">Call us: <a href="tel:5551234567">(555) 123-4567</a></div>
+    <!-- Logo Header -->
+    <div class="logo-header">
+        <div class="logo-container">
+            <span class="logo-name">ProBuild <span class="logo-highlight">LA</span></span>
         </div>
-    </header>
+        <img src="Verified-icon.webp" alt="Verified" class="header-verified">
+        <a href="tel:3105551234" class="header-phone">(310) 555-1234</a>
+    </div>
 
-    <section class="hero">
-        <h1>Quality Home Improvements<br>You Can Trust</h1>
-        <p>Get a free consultation and see why thousands of homeowners choose us for their renovation projects.</p>
-    </section>
-
-    <main class="main">
-        <div class="about">
-            <h2>Why HomeRight?</h2>
-            <p>We've been helping families transform their homes for over 15 years. From roofing to siding, windows to painting — we deliver quality work that lasts.</p>
-
-            <ul class="features">
-                <li><span>✓</span> Licensed & fully insured contractors</li>
-                <li><span>✓</span> Free in-home consultation & estimate</li>
-                <li><span>✓</span> Flexible financing options available</li>
-                <li><span>✓</span> Satisfaction guaranteed on every project</li>
-                <li><span>✓</span> Local team that knows your neighborhood</li>
-            </ul>
-
-            <div class="trust-badges">
-                <div class="badge">
-                    <div class="badge-num">15+</div>
-                    <div class="badge-text">Years Experience</div>
-                </div>
-                <div class="badge">
-                    <div class="badge-num">5,000+</div>
-                    <div class="badge-text">Happy Customers</div>
-                </div>
-                <div class="badge">
-                    <div class="badge-num">4.9★</div>
-                    <div class="badge-text">Average Rating</div>
-                </div>
-            </div>
+    <!-- Progress Bar (hidden on step 1) -->
+    <div class="progress-wrapper" id="progressWrapper" style="display: none;">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
         </div>
+        <div class="progress-label" id="progressLabel">Step 2 of 5</div>
+    </div>
 
-        <div class="form-section">
-            <h3>Schedule Your Free Consultation</h3>
-            <p>Fill out the form below and we'll contact you within 24 hours.</p>
+    <!-- Form -->
+    <div class="form-container">
+        <div class="form-card">
+            <form id="multiStepForm" novalidate>
 
-            <form id="form">
-                <div class="field">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="John Smith" required>
-                </div>
+                <!-- Step 1: Zip Code -->
+                <div class="step active" data-step="1">
+                    <h1>Get Your Free Estimate</h1>
+                    <h2>Quality Home Improvements in LA</h2>
+                    <p class="step-subtitle">Enter your zip code to check if we serve your area.</p>
 
-                <div class="field">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="(555) 000-0000" required>
-                </div>
+                    <div class="input-wrapper">
+                        <input type="text" class="input-field" id="zipcodeInput" name="zipcode" placeholder="Enter Zip Code" maxlength="5" pattern="[0-9]{5}" required>
+                        <div class="zip-message" id="zipMessage"></div>
+                    </div>
 
-                <div class="field">
-                    <label>Email (optional)</label>
-                    <input type="email" placeholder="you@email.com">
-                </div>
+                    <div class="trust-text">
+                        <img src="icons/shield-check.svg" alt="" width="18" height="18">
+                        Your information is safe with us
+                    </div>
 
-                <div class="field">
-                    <label>Property Address</label>
-                    <input type="text" placeholder="123 Main St, City, State" required>
-                </div>
+                    <div class="buttons">
+                        <button type="button" class="btn-next" onclick="nextStep()">Next</button>
+                    </div>
 
-                <div class="field">
-                    <label>What project are you interested in?</label>
-                    <select required>
-                        <option value="">Select...</option>
-                        <option>Roofing</option>
-                        <option>Siding</option>
-                        <option>Windows & Doors</option>
-                        <option>Painting</option>
-                        <option>Fencing</option>
-                        <option>Multiple Projects</option>
-                        <option>Not sure yet</option>
-                    </select>
-                </div>
+                    <!-- Trust Badges -->
+                    <div class="trust-badges">
+                        <img src="accredited business logo 1.svg" alt="BBB Accredited Business" class="trust-badge">
+                        <img src="google-gurante.svg" alt="Google Guaranteed" class="trust-badge">
+                        <img src="home-advisors.svg" alt="HomeAdvisor" class="trust-badge">
+                        <img src="nari logo 1.svg" alt="NARI Member" class="trust-badge">
+                    </div>
 
-                <div class="field">
-                    <label>Best time to contact you?</label>
-                    <div class="row">
-                        <select>
-                            <option value="">Day...</option>
-                            <option>Any day</option>
-                            <option>Weekdays</option>
-                            <option>Weekends</option>
-                        </select>
-                        <select>
-                            <option value="">Time...</option>
-                            <option>Morning (9am-12pm)</option>
-                            <option>Afternoon (12pm-5pm)</option>
-                            <option>Evening (5pm-8pm)</option>
-                        </select>
+                    <!-- Trust Info (Step 1 only) -->
+                    <div class="step1-trust-info">
+                        <div class="trust-stats">
+                            <div class="trust-stat">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="trust-stat">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="trust-stat">
+                                <span class="stat-number">4.9★</span>
+                                <span class="stat-label">Google Rating</span>
+                            </div>
+                        </div>
+                        <div class="trust-details">
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7cb342" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg> Licensed & Insured</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7cb342" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg> CSLB #1082456</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="field">
-                    <label>Anything else we should know? (optional)</label>
-                    <textarea placeholder="Tell us about your project..."></textarea>
+                <!-- Step 2: Full Name + Phone -->
+                <div class="step" data-step="2">
+                    <h1>Great! Let's Get in Touch</h1>
+                    <h2>How can we reach you?</h2>
+
+                    <div class="input-wrapper">
+                        <input type="text" class="input-field" name="name" placeholder="Full Name" required style="margin-bottom: 15px;">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="tel" class="input-field" name="phone" placeholder="Phone Number" required>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
+                        <button type="button" class="btn-next" onclick="nextStep()">Next</button>
+                    </div>
                 </div>
 
-                <button type="submit" class="submit-btn">Request Free Consultation</button>
+                <!-- Step 3: Project Type -->
+                <div class="step" data-step="3">
+                    <h1>Tell Us About Your Project</h1>
+                    <h2>What can we help you with?</h2>
+                    <p class="step-subtitle">Select all that apply</p>
 
-                <p class="privacy">Your information is secure and will never be shared.</p>
+                    <div class="projects-scroll-container">
+                        <div class="project-cards-grid">
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="HVAC">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M3 12h18M6.5 6.5l11 11M17.5 6.5l-11 11"/><circle cx="12" cy="12" r="3"/></svg></span>
+                                    <span class="card-text">HVAC</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Exterior Paint">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 3H5a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 11v10M8 21h8"/></svg></span>
+                                    <span class="card-text">Exterior Paint</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Windows">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18M3 12h18"/></svg></span>
+                                    <span class="card-text">Windows</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Roofing/Gutters">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-9 9 9"/><path d="M5 10v10a1 1 0 001 1h12a1 1 0 001-1V10"/></svg></span>
+                                    <span class="card-text">Roofing/Gutters</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Cement">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="14" width="18" height="7"/><path d="M6 14V8h4v6M14 14V8h4v6M10 14V5h4v9"/></svg></span>
+                                    <span class="card-text">Cement</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Patio Covers">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h18M3 8l3 13h12l3-13M7 8V5a1 1 0 011-1h8a1 1 0 011 1v3"/></svg></span>
+                                    <span class="card-text">Patio Covers</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Landscape">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-3 0-6 4-6 8 0 3 2 5 6 5s6-2 6-5c0-4-3-8-6-8z"/><path d="M12 16v5M9 21h6"/></svg></span>
+                                    <span class="card-text">Landscape</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Hardscape">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></span>
+                                    <span class="card-text">Hardscape</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Turf">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 21V11M10 21V8M14 21V11M18 21V8M4 21h16"/></svg></span>
+                                    <span class="card-text">Turf</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Pavers">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="5"/><rect x="13" y="3" width="8" height="5"/><rect x="3" y="10" width="5" height="5"/><rect x="10" y="10" width="5" height="5"/><rect x="17" y="10" width="4" height="5"/><rect x="3" y="17" width="8" height="4"/><rect x="13" y="17" width="8" height="4"/></svg></span>
+                                    <span class="card-text">Pavers</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Fencing">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6v14M10 6v14M16 6v14M22 6v14M4 3l0 3M10 3l0 3M16 3l0 3M22 3l0 3M2 10h22M2 16h22"/></svg></span>
+                                    <span class="card-text">Fencing</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Insulation">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h16M4 14h16M9 4v16M14 4v16"/></svg></span>
+                                    <span class="card-text">Insulation</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Flooring">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></span>
+                                    <span class="card-text">Flooring</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Retaining Walls">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21h16M4 21V11l8-7 8 7v10"/><rect x="7" y="14" width="4" height="3"/><rect x="13" y="14" width="4" height="3"/><rect x="7" y="10" width="4" height="3"/><rect x="13" y="10" width="4" height="3"/></svg></span>
+                                    <span class="card-text">Retaining Walls</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Kitchen Remodel">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18"/><circle cx="7" cy="6" r="1"/><circle cx="12" cy="6" r="1"/><path d="M7 13v5M12 13v5M17 13v5"/></svg></span>
+                                    <span class="card-text">Kitchen Remodel</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Bathroom Remodel">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16a1 1 0 011 1v2a4 4 0 01-4 4H7a4 4 0 01-4-4v-2a1 1 0 011-1z"/><path d="M6 12V5a2 2 0 012-2h1"/><circle cx="18" cy="19" r="1"/><circle cx="6" cy="19" r="1"/></svg></span>
+                                    <span class="card-text">Bathroom Remodel</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Solar">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span>
+                                    <span class="card-text">Solar</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Tile Work">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg></span>
+                                    <span class="card-text">Tile Work</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Room Addition">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="12" height="13"/><path d="M15 14h6v7h-6"/><path d="M3 8l6-5 6 5"/><path d="M15 14l3-3 3 3"/></svg></span>
+                                    <span class="card-text">Room Addition</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Interior Paint">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 3H5a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M10 11l-1 10h2l2-10"/></svg></span>
+                                    <span class="card-text">Interior Paint</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Electrical">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+                                    <span class="card-text">Electrical</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Doors">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="1"/><circle cx="15" cy="12" r="1"/></svg></span>
+                                    <span class="card-text">Doors</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Earthquake Safety">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg></span>
+                                    <span class="card-text">Earthquake Safety</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Plumbing">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 14h6v7H4zM14 10h6v11h-6z"/><path d="M10 17h4M7 14V7a3 3 0 016 0M17 10V7"/></svg></span>
+                                    <span class="card-text">Plumbing</span>
+                                </div>
+                            </label>
+                            <label class="project-card">
+                                <input type="checkbox" name="project" value="Pools">
+                                <div class="card-content">
+                                    <span class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c1-1 2-2 4-2s3 2 4 2 2-2 4-2 3 2 4 2 3-1 4-2"/><path d="M2 17c1-1 2-2 4-2s3 2 4 2 2-2 4-2 3 2 4 2 3-1 4-2"/><path d="M6 7v5M18 4v8"/></svg></span>
+                                    <span class="card-text">Pools</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
+                        <button type="button" class="btn-next" onclick="nextStep()">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Schedule -->
+                <div class="step" data-step="4">
+                    <h1>Almost done!</h1>
+                    <h2>When would you like us to visit?</h2>
+                    <p class="step-subtitle">Choose your preferred date and time</p>
+
+                    <div class="schedule-container">
+                        <!-- Date Selection -->
+                        <div class="schedule-section">
+                            <div class="month-title" id="currentMonth"></div>
+                            <div class="date-grid" id="dateOptions">
+                                <!-- Dates will be generated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Time Selection -->
+                        <div class="schedule-section">
+                            <label class="schedule-label">Select a Time</label>
+                            <div class="time-options">
+                                <label class="time-chip">
+                                    <input type="radio" name="time" value="Morning (8AM-11AM)" required>
+                                    <span>
+                                        <strong>Morning</strong>
+                                        <small>8AM - 11AM</small>
+                                    </span>
+                                </label>
+                                <label class="time-chip">
+                                    <input type="radio" name="time" value="Midday (11AM-2PM)">
+                                    <span>
+                                        <strong>Midday</strong>
+                                        <small>11AM - 2PM</small>
+                                    </span>
+                                </label>
+                                <label class="time-chip">
+                                    <input type="radio" name="time" value="Afternoon (2PM-5PM)">
+                                    <span>
+                                        <strong>Afternoon</strong>
+                                        <small>2PM - 5PM</small>
+                                    </span>
+                                </label>
+                                <label class="time-chip">
+                                    <input type="radio" name="time" value="Evening (5PM-7PM)">
+                                    <span>
+                                        <strong>Evening</strong>
+                                        <small>5PM - 7PM</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
+                        <button type="button" class="btn-next" onclick="nextStep()">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Property -->
+                <div class="step" data-step="5">
+                    <h1>Last step!</h1>
+                    <h2>Where is the property located?</h2>
+
+                    <div class="input-wrapper">
+                        <input type="text" class="input-field" name="address" placeholder="Property Address" required>
+                    </div>
+
+                    <div class="trust-text" style="margin-top: 20px;">
+                        <img src="icons/shield-check.svg" alt="" width="18" height="18">
+                        Your information is secure and never shared
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
+                        <button type="submit" class="btn-next">Get Free Estimate</button>
+                    </div>
+                </div>
+
             </form>
+        </div>
+    </div>
 
-            <div class="success" id="success">
-                <span>✓</span>
-                <h4>Thank You!</h4>
-                <p>We received your request and will contact you within 24 hours.</p>
+    <!-- Extra Content Below Card (Step 1 only) -->
+    <div class="step1-extra-content" id="step1Extra">
+        <div class="why-choose-us">
+            <h3>Why Choose ProBuild LA?</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <div class="feature-text">
+                        <strong>Free Estimates</strong>
+                        <p>No obligation, no hidden fees</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <div class="feature-text">
+                        <strong>Quality Guarantee</strong>
+                        <p>100% satisfaction or we make it right</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <div class="feature-text">
+                        <strong>Flexible Financing</strong>
+                        <p>Payment plans available</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span>
+                    <div class="feature-text">
+                        <strong>Fast Response</strong>
+                        <p>We call back within 24 hours</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
 
-    <section class="testimonial">
-        <div class="testimonial-inner">
-            <q>HomeRight replaced our roof after storm damage. Professional, fast, and they handled everything with our insurance. Couldn't be happier!</q>
-            <cite>— Sarah M., Austin TX</cite>
+        <div class="testimonials-carousel-wrapper">
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8249;</button>
+            <div class="testimonials-carousel">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <div class="testimonial-box">
+                        <div class="testimonial-category">Landscaping</div>
+                        <p class="testimonial-text">"ProBuild LA transformed our backyard completely. Professional team, fair pricing, and the results exceeded our expectations!"</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">— Michael R.</span>
+                            <span class="author-location">Santa Monica, CA</span>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <div class="testimonial-category">HVAC</div>
+                        <p class="testimonial-text">"New AC system installed in one day. The team was punctual, clean, and explained everything. Our energy bills dropped by 30%!"</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">— Sarah K.</span>
+                            <span class="author-location">Beverly Hills, CA</span>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <div class="testimonial-category">Kitchen Remodel</div>
+                        <p class="testimonial-text">"They turned our outdated kitchen into a modern masterpiece. Great communication throughout the project and finished on schedule."</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">— David & Lisa M.</span>
+                            <span class="author-location">Pasadena, CA</span>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <div class="testimonial-category">Roofing</div>
+                        <p class="testimonial-text">"After the storm damaged our roof, ProBuild LA came quickly and did an amazing job. They even helped with the insurance paperwork!"</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">— Jennifer T.</span>
+                            <span class="author-location">Burbank, CA</span>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+
+                    <div class="testimonial-box">
+                        <div class="testimonial-category">Patio & Hardscape</div>
+                        <p class="testimonial-text">"Beautiful paver patio with a custom pergola. The design team really listened to our vision and brought it to life perfectly."</p>
+                        <div class="testimonial-author">
+                            <span class="author-name">— Robert H.</span>
+                            <span class="author-location">Glendale, CA</span>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn next" onclick="moveCarousel(1)">&#8250;</button>
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
-    </section>
+    </div>
 
-    <footer class="footer">
-        <p>© 2024 HomeRight Improvements · <a href="tel:5551234567">(555) 123-4567</a> · Serving the Greater Metro Area</p>
-    </footer>
+    <!-- Footer Trust -->
+    <div class="footer-trust">
+        <p>Serving the Greater Los Angeles Area · Licensed & Insured · CSLB Verified</p>
+        <div class="footer-links">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">FAQ</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
 
-    <script>
-        document.getElementById('form').onsubmit = function(e) {
-            e.preventDefault();
-            this.style.display = 'none';
-            document.getElementById('success').style.display = 'block';
+<script>
+    let currentStep = 1;
+    const totalSteps = 5;
+
+    function updateProgress() {
+        const progressWrapper = document.getElementById('progressWrapper');
+        const progressFill = document.getElementById('progressFill');
+        const progressLabel = document.getElementById('progressLabel');
+        const step1Extra = document.getElementById('step1Extra');
+
+        // Show progress bar only after step 1 and before success
+        if (currentStep > 1 && currentStep < totalSteps) {
+            progressWrapper.style.display = 'block';
+            // Calculate progress (steps 2-5 map to 25%-100%)
+            const progress = ((currentStep - 1) / (totalSteps - 2)) * 100;
+            progressFill.style.width = progress + '%';
+            progressLabel.textContent = `Step ${currentStep - 1} of ${totalSteps - 2}`;
+        } else {
+            progressWrapper.style.display = 'none';
+        }
+
+        // Show extra content only on step 1
+        if (step1Extra) {
+            step1Extra.style.display = currentStep === 1 ? 'block' : 'none';
+        }
+
+        // Update visible step
+        document.querySelectorAll('.step').forEach(step => {
+            step.classList.remove('active');
+            if (parseInt(step.dataset.step) === currentStep) {
+                step.classList.add('active');
+            }
+        });
+    }
+
+    // Los Angeles center coordinates
+    const LA_CENTER = {
+        lat: 34.0522,
+        lng: -118.2437
+    };
+    const SERVICE_RADIUS_KM = 100;
+
+    // Haversine formula to calculate distance between two points
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Earth's radius in km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    }
+
+    // Validate zip code using Zippopotam.us API (free, supports CORS, based on USPS data)
+    async function validateZipCode(zipcode) {
+        const response = await fetch(`https://api.zippopotam.us/us/${zipcode}`);
+        if (!response.ok) {
+            throw new Error('Invalid zip code');
+        }
+        const data = await response.json();
+        const lat = parseFloat(data.places[0].latitude);
+        const lng = parseFloat(data.places[0].longitude);
+        const city = data.places[0]['place name'];
+        const state = data.places[0]['state abbreviation'];
+        const distance = calculateDistance(LA_CENTER.lat, LA_CENTER.lng, lat, lng);
+
+        return {
+            valid: true,
+            city,
+            state,
+            lat,
+            lng,
+            distance,
+            withinServiceArea: distance <= SERVICE_RADIUS_KM
         };
-    </script>
+    }
+
+    async function nextStep() {
+        // Validate zip code on step 1
+        if (currentStep === 1) {
+            const zipcodeInput = document.getElementById('zipcodeInput');
+            const zipMessage = document.getElementById('zipMessage');
+            const nextBtn = document.querySelector('.step.active .btn-next');
+            const zipcode = zipcodeInput.value.trim();
+
+            // Reset states
+            zipMessage.textContent = '';
+            zipMessage.className = 'zip-message';
+            zipcodeInput.classList.remove('error', 'success');
+
+            // Check if zip code is 5 digits
+            if (!/^\d{5}$/.test(zipcode)) {
+                zipMessage.textContent = 'Please enter a valid 5-digit zip code';
+                zipMessage.classList.add('error');
+                zipcodeInput.classList.add('error');
+                return;
+            }
+
+            // Show loading state
+            nextBtn.classList.add('loading');
+            nextBtn.textContent = 'Checking';
+
+            try {
+                const result = await validateZipCode(zipcode);
+
+                if (!result.withinServiceArea) {
+                    zipMessage.textContent = `Sorry, ${result.city}, ${result.state} is outside our service area (${Math.round(result.distance)} km from LA)`;
+                    zipMessage.classList.add('error');
+                    zipcodeInput.classList.add('error');
+                    nextBtn.classList.remove('loading');
+                    nextBtn.textContent = 'Next';
+                    return;
+                }
+
+                // Success - zip code is within service area
+                zipMessage.textContent = `Great! We serve ${result.city}, ${result.state}`;
+                zipMessage.classList.add('success');
+                zipcodeInput.classList.add('success');
+
+                nextBtn.classList.remove('loading');
+                nextBtn.textContent = 'Next';
+
+                // Wait a moment to show success message, then proceed
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+            } catch (error) {
+                zipMessage.textContent = 'Invalid zip code. Please check and try again.';
+                zipMessage.classList.add('error');
+                zipcodeInput.classList.add('error');
+                nextBtn.classList.remove('loading');
+                nextBtn.textContent = 'Next';
+                return;
+            }
+        }
+
+        if (currentStep < totalSteps) {
+            currentStep++;
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    function prevStep() {
+        if (currentStep > 1) {
+            currentStep--;
+            updateProgress();
+        }
+    }
+
+    // Prevent form submission on Enter, use nextStep instead
+    document.getElementById('multiStepForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+    });
+
+    // Handle Enter key in input fields
+    document.querySelectorAll('.input-field').forEach(input => {
+        input.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                nextStep();
+            }
+        });
+    });
+
+    // Auto-advance on option selection (for radio buttons only)
+    document.querySelectorAll('.option-card input[type="radio"]').forEach(input => {
+        input.addEventListener('change', function() {
+            setTimeout(() => nextStep(), 400);
+        });
+    });
+
+    // Generate date options (rest of the month)
+    function generateDateOptions() {
+        const container = document.getElementById('dateOptions');
+        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+        const today = new Date();
+        const currentMonth = today.getMonth();
+        const currentYear = today.getFullYear();
+
+        // Get the last day of the current month
+        const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+        // Calculate how many days left in the month (including today)
+        const daysRemaining = lastDayOfMonth - today.getDate() + 1;
+
+        for (let i = 0; i < daysRemaining; i++) {
+            const date = new Date();
+            date.setDate(date.getDate() + i);
+
+            const dayName = days[date.getDay()];
+            const dayNum = date.getDate();
+            const month = months[date.getMonth()];
+            const value = date.toISOString().split('T')[0];
+
+            const label = document.createElement('label');
+            label.className = 'date-chip';
+            label.innerHTML = `
+                <input type="radio" name="date" value="${value}" ${i === 0 ? 'required' : ''}>
+                <span>
+                    <small>${dayName}</small>
+                    <strong>${dayNum}</strong>
+                    <small>${month}</small>
+                </span>
+            `;
+            container.appendChild(label);
+        }
+
+        // Update month title
+        const monthTitle = document.getElementById('currentMonth');
+        if (monthTitle) {
+            monthTitle.textContent = months[currentMonth] + ' ' + currentYear;
+        }
+    }
+
+    // Initialize date options on load
+    generateDateOptions();
+
+    // Testimonials Carousel
+    let currentSlide = 0;
+    const track = document.getElementById('testimonialsTrack');
+    const dotsContainer = document.getElementById('carouselDots');
+    const totalSlides = track ? track.children.length : 0;
+
+    function initCarousel() {
+        if (!dotsContainer || !track) return;
+
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateCarousel() {
+        if (!track) return;
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+        // Update dots
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+    }
+
+    function moveCarousel(direction) {
+        currentSlide += direction;
+        // Wrap around - infinite carousel
+        if (currentSlide < 0) currentSlide = totalSlides - 1;
+        if (currentSlide >= totalSlides) currentSlide = 0;
+        updateCarousel();
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+    }
+
+    // Initialize carousel
+    initCarousel();
+</script>
 
 </body>
 </html>
