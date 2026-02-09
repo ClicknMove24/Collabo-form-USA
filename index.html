@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vision Builders - Get Your Free Estimate</title>
+    <meta property="og:title" content="Vision Builders - Get Your Free Estimate" />
+    <meta property="og:description" content="Quality Home Improvements You Can Trust. Free estimates from a licensed General Contractor in Southern California." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://visionbuilders.form-me.com/" />
+    <meta property="og:image" content="https://visionbuilders.form-me.com/og-banner.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Vision Builders - Licensed General Contractor" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -1188,6 +1196,8 @@
     </div>
 
 <script>
+    const BOT_API_URL = 'https://worthy-choice-badger.ngrok-free.app';
+
     let currentStep = 1;
     const totalSteps = 2; // Only 2 real steps (step 3 is success screen)
 
@@ -1276,6 +1286,18 @@
 
         console.log('Form submitted:', formData);
 
+        // POST form data to bot (fire-and-forget)
+        fetch(BOT_API_URL + '/usa-form/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                ...formData,
+                referrer: document.referrer,
+                url: window.location.href,
+                user_agent: navigator.userAgent
+            })
+        }).catch(function() {});
+
         // Show success step
         currentStep = 3;
         updateProgress();
@@ -1346,6 +1368,20 @@
 
     // Initialize carousel
     initCarousel();
+
+    // Track page visit (fire-and-forget)
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch(BOT_API_URL + '/usa-form/visit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                referrer: document.referrer,
+                url: window.location.href,
+                user_agent: navigator.userAgent,
+                screen: screen.width + 'x' + screen.height
+            })
+        }).catch(function() {});
+    });
 </script>
 
 </body>
