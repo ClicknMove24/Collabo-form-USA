@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Your Free Estimate</title>
+    <title>Vision Builders - Get Your Free Estimate</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -34,44 +34,67 @@
             align-items: center;
         }
 
-        .logo-name {
-            font-size: 26px;
-            font-weight: 700;
-            color: #222;
-        }
-
-        .logo-highlight {
-            color: #7cb342;
+        .header-logo {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
         }
 
         .header-phone {
-            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            font-size: 15px;
             font-weight: 600;
-            color: #222;
+            color: white;
             text-decoration: none;
+            background: #7cb342;
+            padding: 8px 18px;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+            letter-spacing: 0.3px;
         }
 
         .header-phone:hover {
-            color: #555;
+            background: #689f38;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(124,179,66,0.35);
         }
 
-        .header-verified {
-            height: 42px;
-            width: auto;
+        .header-phone svg {
+            flex-shrink: 0;
+        }
+
+        .header-website {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a2a3a;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+        }
+
+        .header-website:hover {
+            color: #2c5282;
+            text-decoration: underline;
         }
 
         @media (max-width: 500px) {
             .logo-header {
                 padding: 12px 16px;
             }
-            .logo-name {
-                font-size: 20px;
+            .header-logo {
+                height: 35px;
             }
-            .header-verified {
-                height: 32px;
+            .header-website {
+                font-size: 11px;
             }
             .header-phone {
-                font-size: 14px;
+                font-size: 12px;
+                padding: 6px 14px;
+            }
+            .header-phone svg {
+                width: 13px;
+                height: 13px;
             }
         }
 
@@ -220,67 +243,6 @@
         }
 
         .input-field.success {
-            border-color: #7cb342;
-        }
-
-        .zip-message {
-            font-size: 13px;
-            margin-top: 10px;
-            min-height: 20px;
-            text-align: center;
-        }
-
-        .zip-message.error {
-            color: #e53935;
-        }
-
-        .zip-message.success {
-            color: #7cb342;
-        }
-
-        .btn-next.loading {
-            pointer-events: none;
-            opacity: 0.7;
-        }
-
-        .btn-next.loading::after {
-            content: '';
-            display: inline-block;
-            width: 14px;
-            height: 14px;
-            border: 2px solid #fff;
-            border-top-color: transparent;
-            border-radius: 50%;
-            margin-left: 8px;
-            animation: spin 0.8s linear infinite;
-            vertical-align: middle;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Select Field */
-        .select-field {
-            width: 100%;
-            padding: 18px 24px;
-            border: 2px solid #e0e0e0;
-            border-radius: 50px;
-            font-size: 16px;
-            font-family: inherit;
-            text-align: center;
-            color: #333;
-            background: white;
-            appearance: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 20px center;
-        }
-
-        .select-field:focus {
-            outline: none;
             border-color: #7cb342;
         }
 
@@ -628,58 +590,6 @@
             margin-top: 10px;
         }
 
-        /* Option Cards */
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            max-width: 500px;
-            margin: 0 auto 30px;
-        }
-
-        .option-card {
-            position: relative;
-        }
-
-        .option-card input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .option-card label {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 24px 16px;
-            border: 2px solid #e5e5e5;
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background: white;
-        }
-
-        .option-card label:hover {
-            border-color: #ccc;
-        }
-
-        .option-card input:checked + label {
-            border-color: #7cb342;
-            background: #f9fcf5;
-        }
-
-        .option-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 10px;
-        }
-
-        .option-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: #555;
-        }
-
         /* Project Cards */
         .projects-scroll-container {
             max-width: 500px;
@@ -803,178 +713,6 @@
             }
         }
 
-        /* Schedule Section */
-        .schedule-container {
-            max-width: 450px;
-            margin: 0 auto 20px;
-        }
-
-        .schedule-section {
-            margin-bottom: 25px;
-        }
-
-        .schedule-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 12px;
-            text-align: left;
-        }
-
-        /* Date Options */
-        .month-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .date-grid {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 5px 0 10px;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .date-grid::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .date-grid::-webkit-scrollbar-track {
-            background: #f0f0f0;
-            border-radius: 3px;
-        }
-
-        .date-grid::-webkit-scrollbar-thumb {
-            background: #ccc;
-            border-radius: 3px;
-        }
-
-        .date-grid::-webkit-scrollbar-thumb:hover {
-            background: #aaa;
-        }
-
-        .date-chip {
-            position: relative;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-
-        .date-chip input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .date-chip span {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 8px 12px;
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            transition: all 0.2s ease;
-            min-width: 50px;
-        }
-
-        .date-chip span strong {
-            font-size: 16px;
-            color: #333;
-            line-height: 1.2;
-        }
-
-        .date-chip span small {
-            font-size: 9px;
-            color: #888;
-        }
-
-        .date-chip span small:first-child {
-            margin-bottom: 2px;
-        }
-
-        .date-chip span small:last-child {
-            margin-top: 2px;
-        }
-
-        .date-chip:hover span {
-            border-color: #7cb342;
-        }
-
-        .date-chip input:checked + span {
-            background: #7cb342;
-            border-color: #7cb342;
-        }
-
-        .date-chip input:checked + span strong,
-        .date-chip input:checked + span small {
-            color: white;
-        }
-
-        /* Time Options */
-        .time-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .time-chip {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .time-chip input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .time-chip span {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px;
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-        }
-
-        .time-chip span strong {
-            font-size: 15px;
-            color: #333;
-        }
-
-        .time-chip span small {
-            font-size: 12px;
-            color: #888;
-            margin-top: 3px;
-        }
-
-        .time-chip:hover span {
-            border-color: #7cb342;
-        }
-
-        .time-chip input:checked + span {
-            background: #7cb342;
-            border-color: #7cb342;
-        }
-
-        .time-chip input:checked + span strong,
-        .time-chip input:checked + span small {
-            color: white;
-        }
-
-        @media (max-width: 400px) {
-            .time-options {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* Footer Trust */
         .footer-trust {
             text-align: center;
@@ -1040,10 +778,6 @@
                 font-size: 22px;
             }
 
-            .options-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .progress-line {
                 width: 40px;
             }
@@ -1055,10 +789,13 @@
     <!-- Logo Header -->
     <div class="logo-header">
         <div class="logo-container">
-            <span class="logo-name">ProBuild <span class="logo-highlight">LA</span></span>
+            <a href="https://govisionbuilders.com/" target="_blank"><img src="vision-builders-logo.png" alt="Vision Builders" class="header-logo"></a>
         </div>
-        <img src="nari logo 1.svg" alt="NARI Member" class="header-verified">
-        <a href="tel:3105551234" class="header-phone">(310) 555-1234</a>
+        <a href="https://govisionbuilders.com/" target="_blank" class="header-website">govisionbuilders.com</a>
+        <a href="tel:8008476741" class="header-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>800-847-6741</span>
+        </a>
     </div>
 
     <!-- Progress Bar (hidden on step 1) -->
@@ -1066,7 +803,7 @@
         <div class="progress-bar">
             <div class="progress-fill" id="progressFill"></div>
         </div>
-        <div class="progress-label" id="progressLabel">Step 2 of 5</div>
+        <div class="progress-label" id="progressLabel"></div>
     </div>
 
     <!-- Form -->
@@ -1074,18 +811,23 @@
         <div class="form-card">
             <form id="multiStepForm" novalidate>
 
-                <!-- Step 1: Zip Code -->
+                <!-- Step 1: Full Name + Phone -->
                 <div class="step active" data-step="1">
                     <h1>Get Your Free Estimate</h1>
-                    <h2>Quality Home Improvements in LA</h2>
-                    <p class="step-subtitle">Enter your zip code to check if we serve your area.</p>
+                    <h2>Quality Home Improvements You Can Trust</h2>
+                    <p class="step-subtitle">Tell us how to reach you</p>
 
                     <div class="input-wrapper">
-                        <input type="text" class="input-field" id="zipcodeInput" name="zipcode" placeholder="Enter Zip Code" maxlength="5" pattern="[0-9]{5}" required>
-                        <div class="zip-message" id="zipMessage"></div>
+                        <input type="text" class="input-field" name="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="tel" class="input-field" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" class="input-field" name="address" placeholder="Property Address (Optional)">
                     </div>
 
-                    <div class="trust-text">
+                    <div class="trust-text" style="margin-top: 20px;">
                         <img src="icons/shield-check.svg" alt="" width="18" height="18">
                         Your information is safe with us
                     </div>
@@ -1096,6 +838,7 @@
 
                     <!-- Trust Badges -->
                     <div class="trust-badges">
+                        <img src="nari logo 1.svg" alt="NARI Member" class="trust-badge">
                         <img src="accredited business logo 1.svg" alt="BBB Accredited Business" class="trust-badge">
                         <img src="google-gurante.svg" alt="Google Guaranteed" class="trust-badge">
                         <img src="home-advisors.svg" alt="HomeAdvisor" class="trust-badge">
@@ -1120,31 +863,13 @@
                         </div>
                         <div class="trust-details">
                             <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7cb342" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg> Licensed & Insured</span>
-                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7cb342" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg> CSLB #1082456</span>
+                            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7cb342" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg> Lic# 1113781</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Step 2: Full Name + Phone -->
+                <!-- Step 2: Project Type - Final Step -->
                 <div class="step" data-step="2">
-                    <h1>Great! Let's Get in Touch</h1>
-                    <h2>How can we reach you?</h2>
-
-                    <div class="input-wrapper">
-                        <input type="text" class="input-field" name="name" placeholder="Full Name" required style="margin-bottom: 15px;">
-                    </div>
-                    <div class="input-wrapper">
-                        <input type="tel" class="input-field" name="phone" placeholder="Phone Number" required>
-                    </div>
-
-                    <div class="buttons">
-                        <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
-                        <button type="button" class="btn-next" onclick="nextStep()">Next</button>
-                    </div>
-                </div>
-
-                <!-- Step 3: Project Type -->
-                <div class="step" data-step="3">
                     <h1>Tell Us About Your Project</h1>
                     <h2>What can we help you with?</h2>
                     <p class="step-subtitle">Select all that apply</p>
@@ -1331,84 +1056,22 @@
 
                     <div class="buttons">
                         <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
-                        <button type="button" class="btn-next" onclick="nextStep()">Next</button>
+                        <button type="submit" class="btn-next">Get Free Estimate</button>
                     </div>
                 </div>
 
-                <!-- Step 4: Schedule -->
-                <div class="step" data-step="4">
-                    <h1>Almost done!</h1>
-                    <h2>When would you like us to visit?</h2>
-                    <p class="step-subtitle">Choose your preferred date and time</p>
-
-                    <div class="schedule-container">
-                        <!-- Date Selection -->
-                        <div class="schedule-section">
-                            <div class="month-title" id="currentMonth"></div>
-                            <div class="date-grid" id="dateOptions">
-                                <!-- Dates will be generated by JavaScript -->
-                            </div>
-                        </div>
-
-                        <!-- Time Selection -->
-                        <div class="schedule-section">
-                            <label class="schedule-label">Select a Time</label>
-                            <div class="time-options">
-                                <label class="time-chip">
-                                    <input type="radio" name="time" value="Morning (8AM-11AM)" required>
-                                    <span>
-                                        <strong>Morning</strong>
-                                        <small>8AM - 11AM</small>
-                                    </span>
-                                </label>
-                                <label class="time-chip">
-                                    <input type="radio" name="time" value="Midday (11AM-2PM)">
-                                    <span>
-                                        <strong>Midday</strong>
-                                        <small>11AM - 2PM</small>
-                                    </span>
-                                </label>
-                                <label class="time-chip">
-                                    <input type="radio" name="time" value="Afternoon (2PM-5PM)">
-                                    <span>
-                                        <strong>Afternoon</strong>
-                                        <small>2PM - 5PM</small>
-                                    </span>
-                                </label>
-                                <label class="time-chip">
-                                    <input type="radio" name="time" value="Evening (5PM-7PM)">
-                                    <span>
-                                        <strong>Evening</strong>
-                                        <small>5PM - 7PM</small>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
+                <!-- Success Step -->
+                <div class="step" data-step="3">
+                    <div class="success-icon">
+                        <img src="icons/check.svg" alt="Success">
                     </div>
+                    <h1>Thank You!</h1>
+                    <h2>We'll be in touch soon</h2>
+                    <p class="step-subtitle">One of our specialists will contact you within 24 hours to discuss your project and schedule a free estimate.</p>
 
-                    <div class="buttons">
-                        <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
-                        <button type="button" class="btn-next" onclick="nextStep()">Next</button>
-                    </div>
-                </div>
-
-                <!-- Step 5: Property -->
-                <div class="step" data-step="5">
-                    <h1>Last step!</h1>
-                    <h2>Where is the property located?</h2>
-
-                    <div class="input-wrapper">
-                        <input type="text" class="input-field" name="address" placeholder="Property Address" required>
-                    </div>
-
-                    <div class="trust-text" style="margin-top: 20px;">
+                    <div class="trust-text">
                         <img src="icons/shield-check.svg" alt="" width="18" height="18">
                         Your information is secure and never shared
-                    </div>
-
-                    <div class="buttons">
-                        <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
-                        <button type="submit" class="btn-next">Get Free Estimate</button>
                     </div>
                 </div>
 
@@ -1419,7 +1082,7 @@
     <!-- Extra Content Below Card (Step 1 only) -->
     <div class="step1-extra-content" id="step1Extra">
         <div class="why-choose-us">
-            <h3>Why Choose ProBuild LA?</h3>
+            <h3>Why Choose Vision Builders?</h3>
             <div class="features-grid">
                 <div class="feature-item">
                     <span class="feature-icon">✓</span>
@@ -1458,7 +1121,7 @@
                 <div class="testimonials-track" id="testimonialsTrack">
                     <div class="testimonial-box">
                         <div class="testimonial-category">Landscaping</div>
-                        <p class="testimonial-text">"ProBuild LA transformed our backyard completely. Professional team, fair pricing, and the results exceeded our expectations!"</p>
+                        <p class="testimonial-text">"Vision Builders transformed our backyard completely. Professional team, fair pricing, and the results exceeded our expectations!"</p>
                         <div class="testimonial-author">
                             <span class="author-name">— Michael R.</span>
                             <span class="author-location">Santa Monica, CA</span>
@@ -1488,7 +1151,7 @@
 
                     <div class="testimonial-box">
                         <div class="testimonial-category">Roofing</div>
-                        <p class="testimonial-text">"After the storm damaged our roof, ProBuild LA came quickly and did an amazing job. They even helped with the insurance paperwork!"</p>
+                        <p class="testimonial-text">"After the storm damaged our roof, Vision Builders came quickly and did an amazing job. They even helped with the insurance paperwork!"</p>
                         <div class="testimonial-author">
                             <span class="author-name">— Jennifer T.</span>
                             <span class="author-location">Burbank, CA</span>
@@ -1514,7 +1177,8 @@
 
     <!-- Footer Trust -->
     <div class="footer-trust">
-        <p>Serving the Greater Los Angeles Area · Licensed & Insured · CSLB Verified</p>
+        <p>Serving Southern California · Licensed & Insured · Lic# 1113781</p>
+        <p><a href="https://govisionbuilders.com/" target="_blank" style="color: #7cb342; text-decoration: none; font-weight: 500;">govisionbuilders.com</a></p>
         <div class="footer-links">
             <a href="#">Terms & Conditions</a>
             <a href="#">Privacy Policy</a>
@@ -1525,7 +1189,7 @@
 
 <script>
     let currentStep = 1;
-    const totalSteps = 5;
+    const totalSteps = 2; // Only 2 real steps (step 3 is success screen)
 
     function updateProgress() {
         const progressWrapper = document.getElementById('progressWrapper');
@@ -1533,13 +1197,11 @@
         const progressLabel = document.getElementById('progressLabel');
         const step1Extra = document.getElementById('step1Extra');
 
-        // Show progress bar only after step 1 and before success
-        if (currentStep > 1 && currentStep < totalSteps) {
+        // Show progress bar only on step 2
+        if (currentStep === 2) {
             progressWrapper.style.display = 'block';
-            // Calculate progress (steps 2-5 map to 25%-100%)
-            const progress = ((currentStep - 1) / (totalSteps - 2)) * 100;
-            progressFill.style.width = progress + '%';
-            progressLabel.textContent = `Step ${currentStep - 1} of ${totalSteps - 2}`;
+            progressFill.style.width = '50%';
+            progressLabel.textContent = 'Step 2 of 2';
         } else {
             progressWrapper.style.display = 'none';
         }
@@ -1558,104 +1220,24 @@
         });
     }
 
-    // Los Angeles center coordinates
-    const LA_CENTER = {
-        lat: 34.0522,
-        lng: -118.2437
-    };
-    const SERVICE_RADIUS_KM = 100;
-
-    // Haversine formula to calculate distance between two points
-    function calculateDistance(lat1, lon1, lat2, lon2) {
-        const R = 6371; // Earth's radius in km
-        const dLat = (lat2 - lat1) * Math.PI / 180;
-        const dLon = (lon2 - lon1) * Math.PI / 180;
-        const a =
-            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-            Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return R * c;
-    }
-
-    // Validate zip code using Zippopotam.us API (free, supports CORS, based on USPS data)
-    async function validateZipCode(zipcode) {
-        const response = await fetch(`https://api.zippopotam.us/us/${zipcode}`);
-        if (!response.ok) {
-            throw new Error('Invalid zip code');
-        }
-        const data = await response.json();
-        const lat = parseFloat(data.places[0].latitude);
-        const lng = parseFloat(data.places[0].longitude);
-        const city = data.places[0]['place name'];
-        const state = data.places[0]['state abbreviation'];
-        const distance = calculateDistance(LA_CENTER.lat, LA_CENTER.lng, lat, lng);
-
-        return {
-            valid: true,
-            city,
-            state,
-            lat,
-            lng,
-            distance,
-            withinServiceArea: distance <= SERVICE_RADIUS_KM
-        };
-    }
-
-    async function nextStep() {
-        // Validate zip code on step 1
+    function nextStep() {
+        // Validate name and phone on step 1
         if (currentStep === 1) {
-            const zipcodeInput = document.getElementById('zipcodeInput');
-            const zipMessage = document.getElementById('zipMessage');
-            const nextBtn = document.querySelector('.step.active .btn-next');
-            const zipcode = zipcodeInput.value.trim();
+            const nameInput = document.querySelector('input[name="name"]');
+            const phoneInput = document.querySelector('input[name="phone"]');
 
-            // Reset states
-            zipMessage.textContent = '';
-            zipMessage.className = 'zip-message';
-            zipcodeInput.classList.remove('error', 'success');
+            nameInput.classList.remove('error');
+            phoneInput.classList.remove('error');
 
-            // Check if zip code is 5 digits
-            if (!/^\d{5}$/.test(zipcode)) {
-                zipMessage.textContent = 'Please enter a valid 5-digit zip code';
-                zipMessage.classList.add('error');
-                zipcodeInput.classList.add('error');
+            if (!nameInput.value.trim()) {
+                nameInput.classList.add('error');
+                nameInput.focus();
                 return;
             }
 
-            // Show loading state
-            nextBtn.classList.add('loading');
-            nextBtn.textContent = 'Checking';
-
-            try {
-                const result = await validateZipCode(zipcode);
-
-                if (!result.withinServiceArea) {
-                    zipMessage.textContent = `Sorry, ${result.city}, ${result.state} is outside our service area (${Math.round(result.distance)} km from LA)`;
-                    zipMessage.classList.add('error');
-                    zipcodeInput.classList.add('error');
-                    nextBtn.classList.remove('loading');
-                    nextBtn.textContent = 'Next';
-                    return;
-                }
-
-                // Success - zip code is within service area
-                zipMessage.textContent = `Great! We serve ${result.city}, ${result.state}`;
-                zipMessage.classList.add('success');
-                zipcodeInput.classList.add('success');
-
-                nextBtn.classList.remove('loading');
-                nextBtn.textContent = 'Next';
-
-                // Wait a moment to show success message, then proceed
-                await new Promise(resolve => setTimeout(resolve, 1000));
-
-            } catch (error) {
-                zipMessage.textContent = 'Invalid zip code. Please check and try again.';
-                zipMessage.classList.add('error');
-                zipcodeInput.classList.add('error');
-                nextBtn.classList.remove('loading');
-                nextBtn.textContent = 'Next';
+            if (!phoneInput.value.trim()) {
+                phoneInput.classList.add('error');
+                phoneInput.focus();
                 return;
             }
         }
@@ -1674,9 +1256,40 @@
         }
     }
 
-    // Prevent form submission on Enter, use nextStep instead
+    // Handle form submission (on step 2 - project selection)
     document.getElementById('multiStepForm').addEventListener('submit', function(e) {
         e.preventDefault();
+
+        // Check if at least one project is selected
+        const selectedProjects = document.querySelectorAll('input[name="project"]:checked');
+        if (selectedProjects.length === 0) {
+            return;
+        }
+
+        // Collect form data
+        const formData = {
+            name: document.querySelector('input[name="name"]').value,
+            phone: document.querySelector('input[name="phone"]').value,
+            address: document.querySelector('input[name="address"]').value || '',
+            projects: Array.from(selectedProjects).map(cb => cb.value)
+        };
+
+        console.log('Form submitted:', formData);
+
+        // Show success step
+        currentStep = 3;
+        updateProgress();
+        document.querySelectorAll('.step').forEach(step => {
+            step.classList.remove('active');
+            if (parseInt(step.dataset.step) === 3) {
+                step.classList.add('active');
+            }
+        });
+
+        // Hide progress bar on success
+        document.getElementById('progressWrapper').style.display = 'none';
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // Handle Enter key in input fields
@@ -1688,61 +1301,6 @@
             }
         });
     });
-
-    // Auto-advance on option selection (for radio buttons only)
-    document.querySelectorAll('.option-card input[type="radio"]').forEach(input => {
-        input.addEventListener('change', function() {
-            setTimeout(() => nextStep(), 400);
-        });
-    });
-
-    // Generate date options (rest of the month)
-    function generateDateOptions() {
-        const container = document.getElementById('dateOptions');
-        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-        const today = new Date();
-        const currentMonth = today.getMonth();
-        const currentYear = today.getFullYear();
-
-        // Get the last day of the current month
-        const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-        // Calculate how many days left in the month (including today)
-        const daysRemaining = lastDayOfMonth - today.getDate() + 1;
-
-        for (let i = 0; i < daysRemaining; i++) {
-            const date = new Date();
-            date.setDate(date.getDate() + i);
-
-            const dayName = days[date.getDay()];
-            const dayNum = date.getDate();
-            const month = months[date.getMonth()];
-            const value = date.toISOString().split('T')[0];
-
-            const label = document.createElement('label');
-            label.className = 'date-chip';
-            label.innerHTML = `
-                <input type="radio" name="date" value="${value}" ${i === 0 ? 'required' : ''}>
-                <span>
-                    <small>${dayName}</small>
-                    <strong>${dayNum}</strong>
-                    <small>${month}</small>
-                </span>
-            `;
-            container.appendChild(label);
-        }
-
-        // Update month title
-        const monthTitle = document.getElementById('currentMonth');
-        if (monthTitle) {
-            monthTitle.textContent = months[currentMonth] + ' ' + currentYear;
-        }
-    }
-
-    // Initialize date options on load
-    generateDateOptions();
 
     // Testimonials Carousel
     let currentSlide = 0;
